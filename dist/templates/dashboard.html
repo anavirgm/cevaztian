@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard - Archivo Maestro</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='estilos.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>📋 Dashboard - Sistema de Archivo Maestro</h1>
+
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <div class="alert">
+              {% for msg in messages %}
+                <p>{{ msg }}</p>
+              {% endfor %}
+            </div>
+          {% endif %}
+        {% endwith %}
+
+        <div class="card">
+            <h2>📂 Estado del Archivo Maestro</h2>
+            <p><strong>Última actualización:</strong> {{ fecha }}</p>
+            <p><strong>Tamaño:</strong> {{ tamaño }} bytes</p>
+        </div>
+
+        <div class="menu">
+            <a href="{{ url_for('cargar') }}">🔄 Cargar Datos Nuevos</a>
+            <form action="{{ url_for('actualizar') }}" method="post" style="display:inline;">
+                <button type="submit">⚙️ Actualizar Archivo Maestro</button>
+            </form>
+            <a href="{{ url_for('descargar', formato='xlsx') }}">⬇️ Descargar XLSX</a>
+            <a href="{{ url_for('descargar', formato='csv') }}">⬇️ Descargar CSV</a>
+            <a href="{{ url_for('historial') }}">📑 Historial de Cambios</a>
+            <a href="{{ url_for('configuracion') }}">⚙️ Configuración</a>
+            <a href="{{ url_for('ayuda') }}">❓ Ayuda</a>
+        </div>
+    </div>
+</body>
+</html>

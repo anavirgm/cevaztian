@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Actualizar Maestro</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='estilos.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>🔁 Confirmar Actualización del Archivo Maestro</h1>
+
+        <p>¿Estás seguro de que deseas aplicar los nuevos datos al archivo maestro?</p>
+
+        <form action="{{ url_for('actualizar') }}" method="POST">
+            <button type="submit">✅ Confirmar y Actualizar</button>
+            <a href="{{ url_for('dashboard') }}" class="button cancel">❌ Cancelar</a>
+        </form>
+    </div>
+</body>
+</html>

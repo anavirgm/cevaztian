@@ -1,0 +1,47 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
+.container {
+    max-width: 800px;
+    margin: auto;
+}
+h1 {
+    text-align: center;
+    color: #005f73;
+}
+.card {
+    background-color: #e0fbfc;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+.menu {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.menu a, .menu button {
+    text-decoration: none;
+    padding: 10px 15px;
+    background-color: #008891;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+}
+.menu a:hover, .menu button:hover {
+    background-color: #005f73;
+}
+.alert {
+    background-color: #fce4e4;
+    color: #b30000;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+}

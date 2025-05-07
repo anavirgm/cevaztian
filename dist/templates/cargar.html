@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Cargar Datos - Archivo Maestro</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='estilos.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>📂 Cargar Datos Cambiables</h1>
+
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <div class="alert">
+              {% for msg in messages %}
+                <p>{{ msg }}</p>
+              {% endfor %}
+            </div>
+          {% endif %}
+        {% endwith %}
+
+        <form action="{{ url_for('cargar') }}" method="POST" enctype="multipart/form-data" class="upload-form">
+            <label for="archivo">Selecciona un archivo (CSV, XLSX):</label>
+            <input type="file" name="archivo" accept=".xlsx,.xls,.csv,.json" required>
+            <button type="submit">📥 Cargar archivo</button>
+        </form>
+
+        {% if cargado %}
+            <h2>👀 Vista previa del contenido</h2>
+            <div class="preview-table">
+                {{ preview | safe }}
+            </div>
+            <form action="{{ url_for('actualizar') }}" method="POST">
+                <button type="submit">🚀 Actualizar Archivo Maestro</button>
+            </form>
+        {% endif %}
+
+        <p><a href="{{ url_for('dashboard') }}">⬅ Volver al Dashboard</a></p>
+    </div>
+</body>
+</html>
